@@ -1,0 +1,53 @@
+{{ define "title" }}custom title override{{ end }}
+{{ define "head" }}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "my-site",
+  "url": "https://my.site",
+  "sameAs": [
+    "https://twitter.com/{{ $.Site.Params.twitter_handle }}"
+  ]
+}
+</script>
+{{ end }}
+
+{{ define "main" }}
+<h1>title</h1>
+
+<p>subtitle</p>
+
+<p>
+  {{ with .Site.GetPage "page" "faq.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
+  {{ with .Site.GetPage "page" "contact.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
+</p>
+
+<p>Total Blog Posts: {{ len (where $.Data.Pages "Section" "blog") }}</p>
+
+<div>
+  Newest Blogs:
+  <ul>
+  {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "blog") }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+    <li><a href="{{ with .Site.GetPage "section" "blog" }}{{ .Permalink }}{{ end }}">More...</a></li>
+  </ul>
+</div>
+
+<p>
+  <small>
+    <a href="">status</a> |
+    <a href="{{ $.Site.Params.github_repo }}">github</a> |
+    <a href="index.xml">rss</a> |
+    <a href="https://twitter.com/{{ $.Site.Params.twitter_handle }}">twitter</a> |
+    <a href="https://facebook.com/{{ $.Site.Params.facebook_handle }}">facebook</a> |
+    <a href="https://instagram.com/{{ $.Site.Params.instagram_handle }}">instagram</a>
+  </small>
+</p>
+<p>
+  <small>
+    footer
+  </small>
+</p>
+{{ end }}

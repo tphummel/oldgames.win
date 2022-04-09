@@ -1,0 +1,33 @@
+{{ define "main" }}
+<h2>{{.Title}}</h2>
+      <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+
+<p>
+  {{ partial "breadcrumb.html" . }}
+  {{ partial "tag-list.html" . }}
+</p>
+
+<div>{{.Content}}</div>
+<div>
+  {{ range .Sections.ByTitle }}
+    <div>
+        <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+        {{ .Summary }}
+        <!-- <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a> -->
+    </div>
+  {{ end }}
+
+  {{ range .Data.Pages }}
+    <div>
+        <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+        {{ .Summary }}
+        <!-- <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a> -->
+    </div>
+  {{ end }}
+</div>
+<div>
+  {{ with  .OutputFormats.Get "csv" -}}
+    <a href="{{ .Permalink }}">{{ .Name }}</a>
+  {{- end }}
+</div>
+{{ end }}
