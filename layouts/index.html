@@ -10,25 +10,54 @@
 {{ end }}
 
 {{ define "main" }}
-<h1>Video Game Ratings</h1>
+<h1>Exceptional Games</h1>
 
-<p><a href="{{ with .Site.GetPage "section" "g" }}{{ .RelPermalink }}{{ end }}">All Reviews</a></p>
+<p>Games Rated 90+ by Metacritic - Grouped by Platform</p>
 
+{{ range $name, $taxonomy := .Site.Taxonomies.platforms }}
+  {{ $cnt := .Count }}
+  {{ $ninetyPlus := where $taxonomy.Pages "Params.score" ">=" 90 }}
+  {{ with $.Site.GetPage (printf "/platforms/%s" $name) }}
+    {{ $taxoTitle := .Title }}
+    <h2><a href="{{ .RelPermalink }}">{{ $taxoTitle }}</a></h2>
+    <table>
+      <caption>({{ len $ninetyPlus }}/{{ $cnt }})</caption>
+      <tr>
+        <th>Title</th>
+        <th>Score</th>
+        <th>Release Date</th>
+      </tr>
+      {{ range sort $ninetyPlus ".Params.score" "desc" }}
+        <tr>
+          <td><a href={{ .RelPermalink }}>{{ .Title }}</a></td>
+          <td><a href={{ .RelPermalink }}>{{ .Params.score }}</a></td>
+          <td><a href={{ .RelPermalink }}>{{ .Params.releaseDate }}</a></td>
+        </tr>
+      {{ end }}
+    </table>
+  {{end}}
+{{end}}
+
+<h2>Game Reviews by Platform</h2>
 <table>
   <tr>
     <th>Platform</th>
-    <th># Titles</th>
+    <th># Games</th>
   </tr>
 {{ range $name, $taxonomy := .Site.Taxonomies.platforms }}
   {{ $cnt := .Count }}
   {{ with $.Site.GetPage (printf "/platforms/%s" $name) }}
   <tr>
-    <td><a href={{ .RelPermalink }} title="All titles with platform {{$name}}">{{ $name }}</a></td>
+    <td><a href={{ .RelPermalink }} title="All titles with platform {{$name}}">{{ .Title }}</a></td>
     <td><a href={{ .RelPermalink }} title="All titles with platform {{$name}}">{{ $cnt }}</a></td>
   </tr>
-  {{end}}
-{{end}}
+  {{ end }}
+{{ end }}
 </table>
+
+<h2>Other Links</h2>
+
+<p><a href="{{ with .Site.GetPage "section" "g" }}{{ .RelPermalink }}{{ end }}">🚚 All Reviews...</a></p>
 
 <p>
   <small>
