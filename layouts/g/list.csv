@@ -1,0 +1,4 @@
+title,platform,score,releaseDate,link
+{{- range .Data.Pages }}
+"{{ .Title }}","{{ index .Params.platforms 0 }}",{{ .Params.score }},"{{ .Params.releaseDate }}","{{ .Params.metacriticLink}}"
+{{- end -}}

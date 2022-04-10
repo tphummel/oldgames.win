@@ -1,0 +1,9 @@
+
+---
+title: "P.T.O. IV: Pacific Theater of Operations"
+date: "2022-04-09T23:38:29.095Z"
+releaseDate: "2003-02-03"
+platforms: ["ps2"]
+score: 71
+metacriticLink: "https://www.metacritic.com/game/playstation-2/pto-iv-pacific-theater-of-operations"
+---

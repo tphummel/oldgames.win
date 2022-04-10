@@ -1,20 +1,23 @@
 baseURL = "https://my.site/"
 languageCode = "en-us"
-title = "My Site"
+title = "Video Game Ratings"
+enableInlineShortcodes = true
 
 [taxonomies]
   tag = "tags"
+  platform = "platforms"
 
 [params]
     Title = ""
     site_description = ""
-    # twitter_handle = ""
-    # github_repo = "https://github.com//"
-    # facebook_handle =
-    # instagram_handle =
+    github_repo = "https://github.com/tphummel/video-game-quality"
 
 [markup]
   [markup.tableOfContents]
     endLevel = 3
     ordered = false
     startLevel = 1
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML", "CSV"]

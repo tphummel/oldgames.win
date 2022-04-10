@@ -1,0 +1,9 @@
+
+---
+title: "NBA Live 2002"
+date: "2022-04-09T23:38:29.678Z"
+releaseDate: "2001-11-18"
+platforms: ["xbox"]
+score: 76
+metacriticLink: "https://www.metacritic.com/game/xbox/nba-live-2002"
+---

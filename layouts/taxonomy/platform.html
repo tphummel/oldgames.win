@@ -1,0 +1,31 @@
+{{ define "main" }}
+<h1>{{.Title}}</h1>
+
+<p>{{ partial "breadcrumb.html" . }}</p>
+
+{{ with .Content }}
+<div>{{ . }}</div>
+{{ end }}
+
+<table>
+  <tr>
+    <td>Title</td>
+    <td>Score</td>
+    <td>Release Date</td>
+  </tr>
+
+  {{ range (.Data.Pages.ByParam "score").Reverse }}
+    <tr>
+      <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ .Params.score }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ .Params.releaseDate }}</a></td>
+    </tr>
+  {{ end }}
+</table>
+
+<div>
+  {{ with  .OutputFormats.Get "csv" -}}
+    <p><a href="{{ .Permalink }}">CSV</a></p>
+  {{- end }}
+</div>
+{{ end }}

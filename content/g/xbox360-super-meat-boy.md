@@ -1,0 +1,9 @@
+
+---
+title: "Super Meat Boy"
+date: "2022-04-09T23:38:29.771Z"
+releaseDate: "2010-10-20"
+platforms: ["xbox360"]
+score: 90
+metacriticLink: "https://www.metacritic.com/game/xbox-360/super-meat-boy"
+---

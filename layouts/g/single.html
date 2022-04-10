@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<h1>{{.Title}}</h1>
+
+<p>
+  {{ partial "breadcrumb.html" . }}
+  {{ partial "tag-list.html" . }}
+</p>
+
+<p>Score: <strong>{{ lower .Params.score}}</strong></p>
+<p>Platform: <strong><a href="{{ with $.GetPage (printf "/platforms/%s" (index .Params.platforms 0)) }}{{ .RelPermalink}}{{end}}">{{ index .Params.platforms 0 }}</a></strong></p>
+<p>Release Date: <strong>{{ .Params.releaseDate }}</strong></p>
+
+{{ .Content }}
+
+{{ end }}
