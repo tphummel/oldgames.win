@@ -7,18 +7,77 @@
 <div>{{ . }}</div>
 {{ end }}
 
+<h2>Overview</h2>
+<table>
+{{ $games := .Pages }}
+{{ $found := slice }}
+{{ range $games }}
+  {{ $platform := index .Params.platforms 0 }}
+  {{ $bucket := math.Floor (div .Params.score 10) }}
+  {{ $year := (time .Params.releaseDate).Format "2006" }}
+  {{ $gameData := dict "platform" $platform "title" .Title "score" .Params.score "bucket" $bucket "year" $year }}
+  {{ $found = $found | append (slice $gameData) }}
+{{ end }}
+
+{{ $byYearScore := dict }}
+{{ $minYear := 10000 }}
+{{ $maxYear := 0 }}
+
+{{ range $found }}
+  {{ if gt .year $maxYear }}
+    {{ $maxYear = .year }}
+  {{ end }}
+
+  {{ if lt .year $minYear }}
+    {{ $minYear = .year }}
+  {{ end }}
+
+  {{ $yearKey := .year }}
+  {{ $scoreKey := printf "%d" (int .bucket) }}
+
+  {{ $prevYearScore := (index $byYearScore $yearKey ) | default dict }}
+  {{ $prevCount := ((index $prevYearScore $scoreKey) | default 0) }}
+
+  {{ $newCount := add 1 $prevCount }}
+
+  {{ $newByYearScore := dict $yearKey (dict $scoreKey $newCount) }}
+  {{ $byYearScore = merge $byYearScore $newByYearScore }}
+{{ end }}
+
+{{ $years := seq $minYear $maxYear }}
+{{ $scores := seq 5 9 }}
+
 <table>
   <tr>
-    <td>Title</td>
-    <td>Score</td>
-    <td>Release Date</td>
+    <th>Year / Scores</th>
+    {{ range $scores }}
+      <th>{{ mul . 10 }}-{{ add (mul . 10) 9 }}</th>
+    {{ end }}
+  </tr>
+  {{ range $i, $year := $years }}
+    <tr>
+      <th>{{ printf "%d" $year }}</th>
+      {{ range $score := $scores }}
+        <td>{{ index ((index $byYearScore (printf "%d" $year)) | default dict) (printf "%d" $score) | default 0 }}</td>
+      {{ end }}
+    </tr>
+  {{ end }}
+</table>
+
+<h2>All Reviews</h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Score</th>
+    <th>Release Date</th>
   </tr>
 
   {{ range (.Data.Pages.ByParam "score").Reverse }}
     <tr>
       <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
       <td><a href="{{ .RelPermalink }}">{{ .Params.score }}</a></td>
-      <td><a href="{{ .RelPermalink }}">{{ .Params.releaseDate }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}</a></td>
     </tr>
   {{ end }}
 </table>

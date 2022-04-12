@@ -20,7 +20,7 @@
       <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
       <td><a href="{{ .RelPermalink }}">{{ index .Params.platforms 0 }}</a></td>
       <td><a href="{{ .RelPermalink }}">{{ .Params.score }}</a></td>
-      <td><a href="{{ .RelPermalink }}">{{ .Params.releaseDate }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}</a></td>
     </tr>
   {{ end }}
 </table>

@@ -1,6 +1,6 @@
-baseURL = "https://my.site/"
+baseURL = "https://oldgames.win/"
 languageCode = "en-us"
-title = "Video Game Ratings"
+title = "Old Games Win"
 enableInlineShortcodes = true
 
 [taxonomies]
@@ -8,9 +8,7 @@ enableInlineShortcodes = true
   platform = "platforms"
 
 [params]
-    Title = ""
-    site_description = ""
-    github_repo = "https://github.com/tphummel/video-game-quality"
+    github_repo = "https://github.com/tphummel/oldgames.win"
 
 [markup]
   [markup.tableOfContents]

@@ -1,18 +1,56 @@
-{{ define "head" }}
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": "my-site",
-  "url": "https://my.site",
-}
-</script>
-{{ end }}
-
 {{ define "main" }}
 <h1>Exceptional Games</h1>
 
-<p>Games Rated 90+ by Metacritic - Grouped by Platform</p>
+<h2>Quality by Platform</h2>
+<table>
+{{ $games := where .Site.RegularPages "Section" "g" }}
+{{ $found := slice }}
+{{ range $games }}
+  {{ $platform := index .Params.platforms 0 }}
+  {{ $bucket := math.Floor (div .Params.score 10) }}
+  {{ $year := (time .Params.releaseDate).Format "2006" }}
+  {{ $gameData := dict "platform" $platform "title" .Title "score" .Params.score "bucket" $bucket "year" $year }}
+  {{ $found = $found | append (slice $gameData) }}
+{{ end }}
+
+{{ $byPlatformScore := dict }}
+{{ range $found }}
+  {{ $platformKey := .platform }}
+  {{ $scoreKey := printf "%d" (int .bucket) }}
+
+  {{ $prevPlatformScore := (index $byPlatformScore $platformKey ) | default dict }}
+  {{ $prevCount := ((index $prevPlatformScore $scoreKey) | default 0) }}
+
+  {{ $newCount := add 1 $prevCount }}
+
+  {{ $newByPlatform := dict $platformKey (dict $scoreKey $newCount) }}
+  {{ $byPlatformScore = merge $byPlatformScore $newByPlatform }}
+{{ end }}
+
+{{ $platforms := slice }}
+{{ range $name, $taxonomy := .Site.Taxonomies.platforms }}
+  {{ $platforms = $platforms | append (slice $name) }}
+{{ end }}
+{{ $scores := seq 6 9 }}
+
+<table>
+  <tr>
+    <th>Platform/Scores</th>
+    {{ range $scores }}
+      <th>{{ mul . 10 }}-{{ add (mul . 10) 9 }}</th>
+    {{ end }}
+  </tr>
+  {{ range $i, $platform := $platforms }}
+    <tr>
+      <th>{{ with $.Site.GetPage (printf "/platforms/%s" $platform) }}<a href="{{.Permalink}}">{{ .Title }}</a>{{ end }}</th>
+      {{ range $score := $scores }}
+        <td>{{ index ((index $byPlatformScore ($platform)) | default dict) (printf "%d" $score) | default 0 }}</td>
+      {{ end }}
+    </tr>
+  {{ end }}
+</table>
+
+<h2>Games Rated 90+ by Metacritic - Grouped by Platform</h2>
 
 {{ range $name, $taxonomy := .Site.Taxonomies.platforms }}
   {{ $cnt := .Count }}
@@ -31,7 +69,7 @@
         <tr>
           <td><a href={{ .RelPermalink }}>{{ .Title }}</a></td>
           <td><a href={{ .RelPermalink }}>{{ .Params.score }}</a></td>
-          <td><a href={{ .RelPermalink }}>{{ .Params.releaseDate }}</a></td>
+          <td><a href={{ .RelPermalink }}>{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}</a></td>
         </tr>
       {{ end }}
     </table>
@@ -53,6 +91,52 @@
   </tr>
   {{ end }}
 {{ end }}
+</table>
+
+<h2>Annual Summary</h2>
+<table>
+{{ $games := where .Site.RegularPages "Section" "g" }}
+{{ $found := slice }}
+{{ range $games }}
+  {{ $platform := index .Params.platforms 0 }}
+  {{ $bucket := math.Floor (div .Params.score 10) }}
+  {{ $year := (time .Params.releaseDate).Format "2006" }}
+  {{ $gameData := dict "platform" $platform "title" .Title "score" .Params.score "bucket" $bucket "year" $year }}
+  {{ $found = $found | append (slice $gameData) }}
+{{ end }}
+
+{{ $byYearScore := dict }}
+{{ range $found }}
+  {{ $yearKey := .year }}
+  {{ $scoreKey := printf "%d" (int .bucket) }}
+
+  {{ $prevYearScore := (index $byYearScore $yearKey ) | default dict }}
+  {{ $prevCount := ((index $prevYearScore $scoreKey) | default 0) }}
+
+  {{ $newCount := add 1 $prevCount }}
+
+  {{ $newByYearScore := dict $yearKey (dict $scoreKey $newCount) }}
+  {{ $byYearScore = merge $byYearScore $newByYearScore }}
+{{ end }}
+
+{{ $years := seq 1995 2025 }}
+{{ $scores := seq 4 9 }}
+
+<table>
+  <tr>
+    <th>Year/Scores</th>
+    {{ range $scores }}
+      <th>{{ mul . 10 }}-{{ add (mul . 10) 9 }}</th>
+    {{ end }}
+  </tr>
+  {{ range $i, $year := $years }}
+    <tr>
+      <th>{{ printf "%d" $year }}</th>
+      {{ range $score := $scores }}
+        <td>{{ index ((index $byYearScore (printf "%d" $year)) | default dict) (printf "%d" $score) | default 0 }}</td>
+      {{ end }}
+    </tr>
+  {{ end }}
 </table>
 
 <h2>Other Links</h2>

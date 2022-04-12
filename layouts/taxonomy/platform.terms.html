@@ -16,7 +16,7 @@
     {{ $cnt := .Count }}
     {{ with $.Site.GetPage (printf "/platforms/%s" $name) }}
     <tr>
-      <td><a href={{ .RelPermalink }} title="All titles with platform {{$name}}">{{ $name }}</a></td>
+      <td><a href={{ .RelPermalink }} title="All titles with platform {{$name}}">{{ .Title }}</a></td>
       <td><a href={{ .RelPermalink }} title="All titles with platform {{$name}}">{{ $cnt }}</a></td>
     </tr>
     {{end}}

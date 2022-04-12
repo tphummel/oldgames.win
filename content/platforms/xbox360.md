@@ -1,3 +1,3 @@
 ---
-title: Microsoft Xbox 360
+title: Xbox 360
 ---
