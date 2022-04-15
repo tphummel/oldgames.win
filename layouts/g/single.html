@@ -8,8 +8,15 @@
 </p>
 
 <p>Score: <strong>{{ lower .Params.score}}</strong></p>
-<p>Platform: <strong><a href="{{ with $.GetPage (printf "/platforms/%s" (index .Params.platforms 0)) }}{{ .RelPermalink}}{{end}}">{{ index .Params.platforms 0 }}</a></strong></p>
-<p>Release Date: <strong>{{ .Params.releaseDate }}</strong></p>
+{{ $platformName := partial "pretty-platform" . }}
+<p>Platform: <strong><a href="{{ with $.GetPage (printf "/platforms/%s" (index .Params.platforms 0)) }}{{ .RelPermalink}}{{end}}">{{ $platformName }}</a></strong></p>
+{{ range (.GetTerms "series") }}
+  {{ with $.GetPage (printf "/series/%s" .Title) }}
+    <p>Series: <a href="{{ .Permalink }}">{{ .Title }}</a></p>
+  {{ end }}
+{{ end }}
+<p>Release Date: <strong>{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}</strong></p>
+<p>Reviews: <a href="{{ .Params.metacriticLink }}">Metacritic</a>
 
 {{ .Content }}
 

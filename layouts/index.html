@@ -1,7 +1,17 @@
 {{ define "main" }}
-<h1>{{ $.Site.Title }}</h1>
+<h1><a href="{{ $.Site.BaseURL }}">{{ $.Site.Title }}</a></h1>
 
-<h2>Quality by Platform</h2>
+Finding quality in video game history
+
+<h2><a href="{{ with $.Site.GetPage "/series" }}{{ .RelPermalink }}{{ end }}">Series</a></h2>
+{{range $name, $taxonomy := .Site.Taxonomies.series}} {{ $cnt := .Count }}
+  {{ with $.Site.GetPage (printf "/series/%s" $name) }}
+    <a href={{ .RelPermalink }} title="All pages with series {{$name}}">{{ .Title }}</a>
+    <sup>{{ $cnt }}</sup> /
+  {{end}}
+{{end}}
+
+<h2>Quality by <a href="{{ with $.Site.GetPage "/platform" }}{{ .RelPermalink }}{{ end }}">Platform</a></h2>
 <table>
 {{ $games := where .Site.RegularPages "Section" "g" }}
 {{ $found := slice }}
@@ -45,6 +55,59 @@
       <th>{{ with $.Site.GetPage (printf "/platforms/%s" $platform) }}<a href="{{.Permalink}}">{{ .Title }}</a>{{ end }}</th>
       {{ range $score := $scores }}
         <td>{{ index ((index $byPlatformScore ($platform)) | default dict) (printf "%d" $score) | default 0 }}</td>
+      {{ end }}
+    </tr>
+  {{ end }}
+</table>
+
+<h2>Quality by <a href="{{ with $.Site.GetPage "/series" }}{{ .RelPermalink }}{{ end }}">Series</a></h2>
+<table>
+{{ $games := where .Site.RegularPages "Section" "g" }}
+{{ $found := slice }}
+{{ range $games }}
+  {{ $params := .Params }}
+  {{ $title := .Title }}
+  {{ with .Params.series }}
+    {{ $series := index . 0 }}
+    {{ $bucket := math.Floor (div $params.score 10) }}
+    {{ $year := (time $params.releaseDate).Format "2006" }}
+    {{ $gameData := dict "series" $series "title" $title "score" $params.score "bucket" $bucket "year" $year }}
+    {{ $found = $found | append (slice $gameData) }}
+  {{ end }}
+{{ end }}
+
+{{ $bySeriesScore := dict }}
+{{ range $found }}
+  {{ $seriesKey := .series }}
+  {{ $scoreKey := printf "%d" (int .bucket) }}
+
+  {{ $prevSeriesScore := (index $bySeriesScore $seriesKey ) | default dict }}
+  {{ $prevCount := ((index $prevSeriesScore $scoreKey) | default 0) }}
+
+  {{ $newCount := add 1 $prevCount }}
+
+  {{ $newBySeries := dict $seriesKey (dict $scoreKey $newCount) }}
+  {{ $bySeriesScore = merge $bySeriesScore $newBySeries }}
+{{ end }}
+
+{{ $series := slice }}
+{{ range $name, $taxonomy := .Site.Taxonomies.series }}
+  {{ $series = $series | append (slice $name) }}
+{{ end }}
+{{ $scores := seq 6 9 }}
+
+<table>
+  <tr>
+    <th>Series/Scores</th>
+    {{ range $scores }}
+      <th>{{ mul . 10 }}-{{ add (mul . 10) 9 }}</th>
+    {{ end }}
+  </tr>
+  {{ range $i, $s := $series }}
+    <tr>
+      <th>{{ with $.Site.GetPage (printf "/series/%s" $s) }}<a href="{{.Permalink}}">{{ .Title }}</a>{{ end }}</th>
+      {{ range $score := $scores }}
+        <td>{{ index ((index $bySeriesScore ($s)) | default dict) (printf "%d" $score) | default 0 }}</td>
       {{ end }}
     </tr>
   {{ end }}

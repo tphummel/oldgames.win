@@ -1,0 +1,4 @@
+{{ $game := . }}
+{{ $platform := index $game.Params.platforms 0 }}
+{{ $page := $.Site.GetPage (printf "/platforms/%s" $platform)}}
+{{ return $page.Title }}
