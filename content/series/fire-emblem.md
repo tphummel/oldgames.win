@@ -1,0 +1,3 @@
+---
+title: Fire Emblem
+---

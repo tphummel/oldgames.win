@@ -1,0 +1,35 @@
+{{ define "main" }}
+<h1>{{.Title | humanize | title }}</h1>
+
+<p>{{ partial "breadcrumb.html" . }}</p>
+
+{{ with .Content }}
+<div>{{ . }}</div>
+{{ end }}
+
+<h2>All Reviews</h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Platform</th>
+    <th>Score</th>
+    <th>Release Date</th>
+  </tr>
+
+  {{ range (.Data.Pages.ByParam "releaseDate") }}
+    <tr>
+      <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ partial "pretty-platform" . }}</td>
+      <td><a href="{{ .RelPermalink }}">{{ .Params.score }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}</a></td>
+    </tr>
+  {{ end }}
+</table>
+
+<div>
+  {{ with  .OutputFormats.Get "csv" -}}
+    <p><a href="{{ .Permalink }}">CSV</a></p>
+  {{- end }}
+</div>
+{{ end }}
