@@ -5,5 +5,6 @@ date: "2022-04-09T23:38:28.744Z"
 releaseDate: "1998-09-30"
 platforms: ["n64"]
 score: 85
+series: ["f-zero"]
 metacriticLink: "https://www.metacritic.com/game/nintendo-64/f-zero-x"
 ---
