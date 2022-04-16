@@ -1,0 +1,3 @@
+---
+title: Mega Man
+---
