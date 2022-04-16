@@ -5,5 +5,6 @@ date: "2022-04-09T23:38:28.306Z"
 releaseDate: "2004-11-29"
 platforms: ["gba"]
 score: 79
+series: ["final-fantasy"]
 metacriticLink: "https://www.metacritic.com/game/game-boy-advance/final-fantasy-i-ii-dawn-of-souls"
 ---
