@@ -30,13 +30,13 @@ This is a one time script to generate an md file for each row in my source csv f
 
 ```
 # run a single file
-zx content/m/001-move-puzzle-to-date.md $(pwd)/content/w/251.md
+zx content/tools/csv-to-md.md
 
 # test a single file
-find content/w -name "*.md" | grep -v "_index" | head -n1 | xargs -I {} sh -c "zx content/m/001-move-puzzle-to-date.md {}"
+find content/w -name "*.md" | grep -v "_index" | head -n1 | xargs -I {} sh -c "zx content/tools/csv-to-md.md {}"
 
 # test all files
-find content/w -name "*.md" | grep -v "_index" | xargs -I {} sh -c "zx content/m/001-move-puzzle-to-date.md {}"
+find content/w -name "*.md" | grep -v "_index" | xargs -I {} sh -c "zx content/tools/csv-to-md.md {}"
 ```
 
 - The process will exit 0 on success
@@ -56,7 +56,7 @@ function slugify(text) {
     .replace(/-+$/, '')             // Trim - from end of text
 }
 
-const inputFile = './all-metacritic-export.csv'
+const inputFile = './metacritic-discontinued - batch2.csv'
 
 // https://stackoverflow.com/questions/28543821/convert-csv-lines-into-javascript-objects
 const inputContent = await fs.readFile(inputFile, 'utf-8')
@@ -81,6 +81,7 @@ releaseDate: "${obj.releaseDate}"
 platforms: ["${obj.platform}"]
 score: ${obj.score}
 metacriticLink: "${obj.link}"
+series: []
 ---
 `
   // console.log(outputContent)
