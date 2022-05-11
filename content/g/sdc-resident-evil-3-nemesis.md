@@ -1,0 +1,10 @@
+
+---
+title: "Resident Evil 3: Nemesis"
+date: "2022-05-11T05:00:07.738Z"
+releaseDate: "2000-11-17"
+platforms: ["sdc"]
+score: 79
+metacriticLink: "https://www.metacritic.com/game/dreamcast/resident-evil-3-nemesis"
+series: []
+---

@@ -1,0 +1,10 @@
+
+---
+title: "MediEvil: Resurrection"
+date: "2022-05-11T05:00:07.981Z"
+releaseDate: "2005-09-13"
+platforms: ["psp"]
+score: 66
+metacriticLink: "https://www.metacritic.com/game/psp/medievil-resurrection"
+series: []
+---
