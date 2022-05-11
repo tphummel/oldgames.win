@@ -11,7 +11,7 @@ Finding quality in video game history
   {{end}}
 {{end}}
 
-<h2>Quality by <a href="{{ with $.Site.GetPage "/platform" }}{{ .RelPermalink }}{{ end }}">Platform</a></h2>
+<h2>Quality by <a href="{{ with $.Site.GetPage "/platforms" }}{{ .RelPermalink }}{{ end }}">Platform</a></h2>
 <table>
 {{ $games := where .Site.RegularPages "Section" "g" }}
 {{ $found := slice }}

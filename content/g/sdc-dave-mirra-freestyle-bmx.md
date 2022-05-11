@@ -1,0 +1,10 @@
+
+---
+title: "Dave Mirra Freestyle BMX"
+date: "2022-05-11T05:00:07.775Z"
+releaseDate: "2000-11-20"
+platforms: ["sdc"]
+score: 73
+metacriticLink: "https://www.metacritic.com/game/dreamcast/dave-mirra-freestyle-bmx"
+series: []
+---
