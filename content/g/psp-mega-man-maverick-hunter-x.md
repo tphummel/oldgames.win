@@ -6,5 +6,5 @@ releaseDate: "2006-01-31"
 platforms: ["psp"]
 score: 79
 metacriticLink: "https://www.metacritic.com/game/psp/mega-man-maverick-hunter-x"
-series: []
+series: ["mega-man"]
 ---

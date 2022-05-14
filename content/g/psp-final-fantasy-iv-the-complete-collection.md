@@ -6,5 +6,5 @@ releaseDate: "2011-04-18"
 platforms: ["psp"]
 score: 77
 metacriticLink: "https://www.metacritic.com/game/psp/final-fantasy-iv-the-complete-collection"
-series: []
+series: ["final-fantasy"]
 ---

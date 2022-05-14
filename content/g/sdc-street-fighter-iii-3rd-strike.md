@@ -6,5 +6,5 @@ releaseDate: "2000-10-04"
 platforms: ["sdc"]
 score: 84
 metacriticLink: "https://www.metacritic.com/game/dreamcast/street-fighter-iii-3rd-strike"
-series: []
+series: ["street-fighter"]
 ---

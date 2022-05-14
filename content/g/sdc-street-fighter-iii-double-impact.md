@@ -6,5 +6,5 @@ releaseDate: "2000-06-19"
 platforms: ["sdc"]
 score: 84
 metacriticLink: "https://www.metacritic.com/game/dreamcast/street-fighter-iii-double-impact"
-series: []
+series: ["street-fighter"]
 ---

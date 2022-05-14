@@ -6,5 +6,5 @@ releaseDate: "2007-10-30"
 platforms: ["psp"]
 score: 87
 metacriticLink: "https://www.metacritic.com/game/psp/disgaea-afternoon-of-darkness"
-series: []
+series: ["disgaea"]
 ---

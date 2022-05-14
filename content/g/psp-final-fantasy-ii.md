@@ -6,5 +6,5 @@ releaseDate: "2007-07-24"
 platforms: ["psp"]
 score: 63
 metacriticLink: "https://www.metacritic.com/game/psp/final-fantasy-ii"
-series: []
+series: ["final-fantasy"]
 ---

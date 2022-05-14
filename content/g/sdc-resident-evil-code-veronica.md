@@ -6,5 +6,5 @@ releaseDate: "2000-02-29"
 platforms: ["sdc"]
 score: 94
 metacriticLink: "https://www.metacritic.com/game/dreamcast/resident-evil-code-veronica"
-series: []
+series: ["resident-evil"]
 ---

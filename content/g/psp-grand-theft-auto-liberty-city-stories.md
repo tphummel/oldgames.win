@@ -6,5 +6,5 @@ releaseDate: "2005-10-24"
 platforms: ["psp"]
 score: 88
 metacriticLink: "https://www.metacritic.com/game/psp/grand-theft-auto-liberty-city-stories"
-series: []
+series: ["gta"]
 ---

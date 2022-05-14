@@ -6,5 +6,5 @@ releaseDate: "2005-03-23"
 platforms: ["psp"]
 score: 83
 metacriticLink: "https://www.metacritic.com/game/psp/tony-hawks-underground-2-remix"
-series: []
+series: ["tony-hawk"]
 ---

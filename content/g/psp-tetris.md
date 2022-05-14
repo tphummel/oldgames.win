@@ -6,5 +6,5 @@ releaseDate: "2009-10-01"
 platforms: ["psp"]
 score: 85
 metacriticLink: "https://www.metacritic.com/game/psp/tetris"
-series: []
+series: ["tetris"]
 ---

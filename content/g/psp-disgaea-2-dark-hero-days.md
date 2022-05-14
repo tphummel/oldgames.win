@@ -6,5 +6,5 @@ releaseDate: "2009-09-08"
 platforms: ["psp"]
 score: 83
 metacriticLink: "https://www.metacritic.com/game/psp/disgaea-2-dark-hero-days"
-series: []
+series: ["disgaea"]
 ---

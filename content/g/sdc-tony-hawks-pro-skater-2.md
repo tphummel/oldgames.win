@@ -6,5 +6,5 @@ releaseDate: "2000-11-06"
 platforms: ["sdc"]
 score: 97
 metacriticLink: "https://www.metacritic.com/game/dreamcast/tony-hawks-pro-skater-2"
-series: []
+series: ["tony-hawk"]
 ---

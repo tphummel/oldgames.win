@@ -6,5 +6,5 @@ releaseDate: "2014-08-12"
 platforms: ["vita"]
 score: 82
 metacriticLink: "https://www.metacritic.com/game/playstation-vita/disgaea-4-a-promise-revisited"
-series: []
+series: ["disgaea"]
 ---

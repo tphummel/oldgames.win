@@ -6,5 +6,5 @@ releaseDate: "2006-02-07"
 platforms: ["psp"]
 score: 80
 metacriticLink: "https://www.metacritic.com/game/psp/street-fighter-alpha-3-max"
-series: []
+series: ["street-fighter"]
 ---

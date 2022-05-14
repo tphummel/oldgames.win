@@ -6,5 +6,5 @@ releaseDate: "2006-11-21"
 platforms: ["psp"]
 score: 68
 metacriticLink: "https://www.metacritic.com/game/psp/tony-hawks-project-8"
-series: []
+series: ["tony-hawk"]
 ---

@@ -6,5 +6,5 @@ releaseDate: "1999-09-08"
 platforms: ["sdc"]
 score: 98
 metacriticLink: "https://www.metacritic.com/game/dreamcast/soulcalibur"
-series: []
+series: ["soulcalibur"]
 ---

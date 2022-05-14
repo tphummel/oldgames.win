@@ -6,5 +6,5 @@ releaseDate: "2001-06-18"
 platforms: ["sdc"]
 score: 89
 metacriticLink: "https://www.metacritic.com/game/dreamcast/sonic-adventure-2"
-series: []
+series: ["sonic"]
 ---

@@ -5,5 +5,6 @@ date: "2022-04-09T23:38:29.661Z"
 releaseDate: "2005-09-16"
 platforms: ["xbox"]
 score: 78
+series: ["mortal-kombat"]
 metacriticLink: "https://www.metacritic.com/game/xbox/mortal-kombat-shaolin-monks"
 ---

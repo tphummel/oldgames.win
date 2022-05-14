@@ -6,5 +6,5 @@ releaseDate: "2012-12-18"
 platforms: ["vita"]
 score: 75
 metacriticLink: "https://www.metacritic.com/game/playstation-vita/sonic-all-stars-racing-transformed"
-series: []
+series: ["sonic"]
 ---

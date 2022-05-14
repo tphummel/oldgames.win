@@ -6,5 +6,5 @@ releaseDate: "2006-11-16"
 platforms: ["psp"]
 score: 64
 metacriticLink: "https://www.metacritic.com/game/psp/sonic-rivals"
-series: []
+series: ["sonic"]
 ---

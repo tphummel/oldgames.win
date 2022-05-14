@@ -6,5 +6,5 @@ releaseDate: "2009-09-01"
 platforms: ["psp"]
 score: 80
 metacriticLink: "https://www.metacritic.com/game/psp/soulcalibur-broken-destiny"
-series: []
+series: ["soulcalibur"]
 ---

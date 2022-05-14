@@ -6,5 +6,5 @@ releaseDate: "2015-08-18"
 platforms: ["vita"]
 score: 65
 metacriticLink: "https://www.metacritic.com/game/playstation-vita/resident-evil-revelations-2"
-series: []
+series: ["resident-evil"]
 ---

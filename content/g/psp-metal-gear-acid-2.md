@@ -6,5 +6,5 @@ releaseDate: "2006-03-21"
 platforms: ["psp"]
 score: 80
 metacriticLink: "https://www.metacritic.com/game/psp/metal-gear-acid-2"
-series: []
+series: ["metal-gear"]
 ---
