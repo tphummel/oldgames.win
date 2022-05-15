@@ -1,13 +1,14 @@
+{{ $platformName := partial "pretty-platform" . }}
 {{ define "head" }}
   <meta property="og:url" content=""/>
   <meta property="og:title" content="{{ .Title }}" />
-  <meta property="og:description" content="{{ .Title }} for {{ index .Params.platforms 0 }} released on {{ (time .Params.releaseDate).Format "Jan 2, 2006" }}" />
+  <meta property="og:description" content="{{ .Title }} for {{ $platformName }}" />
   <meta property="twitter:label1" value="Release Date" />
   <meta property="twitter:data1" value="{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}" />
   <meta property="twitter:label2" value="Score" />
   <meta property="twitter:data2" value="{{ .Params.score }}" />
   <meta property="twitter:label3" value="Platform" />
-  <meta property="twitter:data3" value="{{ index .Params.platforms 0 }}" />
+  <meta property="twitter:data3" value="{{ $platformName }}" />
 {{ end }}
 
 {{ define "main" }}
@@ -20,7 +21,6 @@
 </p>
 
 <p>Score: <strong>{{ lower .Params.score}}</strong></p>
-{{ $platformName := partial "pretty-platform" . }}
 <p>Platform: <strong><a href="{{ with $.GetPage (printf "/platforms/%s" (index .Params.platforms 0)) }}{{ .RelPermalink}}{{end}}">{{ $platformName }}</a></strong></p>
 {{ range (.GetTerms "series") }}
   {{ with $.GetPage (printf "/series/%s" .Title) }}
