@@ -6,5 +6,5 @@ releaseDate: "2006-11-13"
 platforms: ["psp"]
 score: 70
 metacriticLink: "https://www.metacritic.com/game/psp/mortal-kombat-unchained"
-series: []
+series: ["mortal-kombat"]
 ---

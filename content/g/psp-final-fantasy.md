@@ -6,5 +6,5 @@ releaseDate: "2007-06-26"
 platforms: ["psp"]
 score: 67
 metacriticLink: "https://www.metacritic.com/game/psp/final-fantasy"
-series: []
+series: ["final-fantasy"]
 ---

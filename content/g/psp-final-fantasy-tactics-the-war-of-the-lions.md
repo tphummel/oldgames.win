@@ -6,5 +6,5 @@ releaseDate: "2007-10-09"
 platforms: ["psp"]
 score: 88
 metacriticLink: "https://www.metacritic.com/game/psp/final-fantasy-tactics-the-war-of-the-lions"
-series: []
+series: ["final-fantasy"]
 ---

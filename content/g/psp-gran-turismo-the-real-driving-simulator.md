@@ -6,5 +6,5 @@ releaseDate: "2009-09-30"
 platforms: ["psp"]
 score: 74
 metacriticLink: "https://www.metacritic.com/game/psp/gran-turismo-the-real-driving-simulator"
-series: []
+series: ["gran-turismo"]
 ---

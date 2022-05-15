@@ -6,5 +6,5 @@ releaseDate: "2006-06-13"
 platforms: ["psp"]
 score: 78
 metacriticLink: "https://www.metacritic.com/game/psp/metal-gear-solid-digital-graphic-novel"
-series: []
+series: ["metal-gear"]
 ---

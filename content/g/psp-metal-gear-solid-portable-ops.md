@@ -6,5 +6,5 @@ releaseDate: "2006-12-05"
 platforms: ["psp"]
 score: 87
 metacriticLink: "https://www.metacritic.com/game/psp/metal-gear-solid-portable-ops"
-series: []
+series: ["metal-gear"]
 ---

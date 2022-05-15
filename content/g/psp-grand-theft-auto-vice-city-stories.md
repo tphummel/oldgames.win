@@ -6,5 +6,5 @@ releaseDate: "2006-10-31"
 platforms: ["psp"]
 score: 86
 metacriticLink: "https://www.metacritic.com/game/psp/grand-theft-auto-vice-city-stories"
-series: []
+series: ["gta"]
 ---

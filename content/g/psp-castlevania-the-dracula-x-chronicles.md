@@ -6,5 +6,5 @@ releaseDate: "2007-10-23"
 platforms: ["psp"]
 score: 80
 metacriticLink: "https://www.metacritic.com/game/psp/castlevania-the-dracula-x-chronicles"
-series: []
+series: ["iga-vania"]
 ---

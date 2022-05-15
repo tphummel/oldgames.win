@@ -6,5 +6,5 @@ releaseDate: "2014-03-18"
 platforms: ["vita"]
 score: 86
 metacriticLink: "https://www.metacritic.com/game/playstation-vita/final-fantasy-x-x-2-hd-remaster"
-series: []
+series: ["final-fantasy"]
 ---

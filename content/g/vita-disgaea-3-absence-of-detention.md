@@ -6,5 +6,5 @@ releaseDate: "2012-04-17"
 platforms: ["vita"]
 score: 78
 metacriticLink: "https://www.metacritic.com/game/playstation-vita/disgaea-3-absence-of-detention"
-series: []
+series: ["disgaea"]
 ---

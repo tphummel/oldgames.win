@@ -6,5 +6,5 @@ releaseDate: "2006-03-14"
 platforms: ["psp"]
 score: 82
 metacriticLink: "https://www.metacritic.com/game/psp/mega-man-powered-up"
-series: []
+series: ["mega-man"]
 ---

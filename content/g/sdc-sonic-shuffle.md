@@ -6,5 +6,5 @@ releaseDate: "2000-11-13"
 platforms: ["sdc"]
 score: 54
 metacriticLink: "https://www.metacritic.com/game/dreamcast/sonic-shuffle"
-series: []
+series: ["sonic"]
 ---

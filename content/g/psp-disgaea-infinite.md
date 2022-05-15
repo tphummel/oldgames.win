@@ -6,5 +6,5 @@ releaseDate: "2010-06-08"
 platforms: ["psp"]
 score: 64
 metacriticLink: "https://www.metacritic.com/game/psp/disgaea-infinite"
-series: []
+series: ["disgaea"]
 ---

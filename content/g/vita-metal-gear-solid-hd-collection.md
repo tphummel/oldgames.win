@@ -6,5 +6,5 @@ releaseDate: "2012-06-12"
 platforms: ["vita"]
 score: 81
 metacriticLink: "https://www.metacritic.com/game/playstation-vita/metal-gear-solid-hd-collection"
-series: []
+series: ["metal-gear"]
 ---

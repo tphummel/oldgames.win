@@ -5,5 +5,6 @@ date: "2022-04-09T23:38:28.788Z"
 releaseDate: "1999-04-30"
 platforms: ["ps1"]
 score: 93
+series: ["street-fighter"]
 metacriticLink: "https://www.metacritic.com/game/playstation/street-fighter-alpha-3"
 ---
