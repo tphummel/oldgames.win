@@ -1,10 +1,11 @@
 {{ $platformName := partial "pretty-platform" . }}
+{{ $releaseDate := (time .Params.releaseDate).Format "Jan 2, 2006" }}
 {{ define "head" }}
   <meta property="og:url" content=""/>
   <meta property="og:title" content="{{ .Title }}" />
-  <meta property="og:description" content="{{ .Title }} for {{ $platformName }}" />
+  <meta property="og:description" content="Released for {{ $platformName }}" />
   <meta property="twitter:label1" value="Release Date" />
-  <meta property="twitter:data1" value="{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}" />
+  <meta property="twitter:data1" value="{{ $releaseDate }}" />
   <meta property="twitter:label2" value="Score" />
   <meta property="twitter:data2" value="{{ .Params.score }}" />
   <meta property="twitter:label3" value="Platform" />
@@ -27,7 +28,7 @@
     <p>Series: <a href="{{ .Permalink }}">{{ .Title }}</a></p>
   {{ end }}
 {{ end }}
-<p>Release Date: <strong>{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}</strong></p>
+<p>Release Date: <strong>{{ $releaseDate }}</strong></p>
 <p>Reviews: <a href="{{ .Params.metacriticLink }}">Metacritic</a>
 
 {{ .Content }}
