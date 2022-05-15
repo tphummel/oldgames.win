@@ -1,5 +1,13 @@
+{{ define "head" }}
+  <meta property="og:url" content=""/>
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="The {{.Title | humanize | title }} platform" />
+  <meta property="twitter:label1" value="Title Count" />
+  <meta property="twitter:data1" value="{{ len .Pages }}" />
+{{ end }}
+
 {{ define "main" }}
-<h1>{{.Title}}</h1>
+<h1>{{.Title | humanize | title }}</h1>
 
 <p>{{ partial "breadcrumb.html" . }}</p>
 
