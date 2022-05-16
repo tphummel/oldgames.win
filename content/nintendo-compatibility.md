@@ -35,17 +35,72 @@ handheldHardwares:
   - title: "3DS"
     description: "Nintendo 3DS / 3DS XL / Nintendo 2DS / New Nintendo 3DS / New Nintendo 3DS XL / New Nintendo 2DS XL"
     compat: [false, false, false, false, true, true]
-home:
-  - title: "Nintendo"
-  - title: "Super Nintendo"
-  - title: "Nintendo 64"
-  - title: "Gamecube"
-  - title: "Wii (RVL-100)"
-  - title: "Wii (RVL-101)"
-  - title: "Wii Mini (RVL-201)"
+homeFormats:
+  - title: NES
+    description: Nintendo Entertainment System Game Pak
+  - title: SNES
+    description: Super Nintendo Entertainment System Game Pak
+  - title: "N64"
+    description: Nintendo 64 Game Pak
+  - title: GCN
+    description: Nintendo GameCube Mini Disc
+  - title: Wii
+    description: Nintendo Wii Disc
+  - title: Wii U
+    description: Nintendo Wii U Disc
+homeHardwares:
+  - title: "NES"
+    description: "Nintendo Entertainment System - All Models"
+    compat: [true, false, false, false, false, false]
+  - title: "SNES"
+    description: "Super Nintendo Entertainment System - All Models"
+    compat: [false, true, false, false, false, false]
+  - title: "N64"
+    description: "Nintendo 64 - All Models"
+    compat: [false, false, true, false, false, false]
+  - title: "GCN"
+    description: "Gamecube - All Models"
+    compat: [false, false, false, true, false, false]
+  - title: "Wii v1"
+    description: "Nintendo Wii (RVL-100)"
+    compat: [false, false, false, true, true, false]
+  - title: "Wii v2"
+    description: "Nintendo Wii (RVL-101)"
+    compat: [false, false, false, false, true, false]
+  - title: "Wii Mini"
+    description: "Nintendo Wii Mini (RVL-201)"
+    compat: [false, false, false, false, true, false]
   - title: "Wii U"
+    description: "Nintendo Wii U - All Models"
+    compat: [false, false, false, false, true, true]
 
 ---
+
+## Home
+
+{{< home.inline >}}
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        {{ range .Page.Params.homeFormats }}
+          <th><abbr title="{{ .description }}">{{ .title }}</abbr></th>
+        {{ end }}
+      </tr>
+    </thead>
+    <tbody>
+      {{ range $device := .Page.Params.homeHardwares }}
+        <tr>
+          <th><abbr title="{{ $device.description }}">{{ $device.title }}</abbr></th>
+          {{ range $i, $status := $device.compat }}
+            <td>{{ cond $status "🟢" "🔴"}}</td>
+          {{ end }}
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+{{< /home.inline >}}
+
 
 ## Handheld
 
@@ -71,3 +126,9 @@ home:
     </tbody>
   </table>
 {{< /handheld.inline >}}
+
+## Notes
+
+- There are tons of compatibility quirks. See the relevant wikipedia articles and cited references for more information.
+- This page is concerned with physical media compatibility. Digital software is not in scope.
+- I left out the Virtual Boy intentionally.
