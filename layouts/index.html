@@ -182,7 +182,7 @@ Finding quality in video game history
   {{ $byYearScore = merge $byYearScore $newByYearScore }}
 {{ end }}
 
-{{ $years := seq 1995 2025 }}
+{{ $years := seq 1995 2020 }}
 {{ $scores := seq 4 9 }}
 
 <table>
@@ -203,9 +203,10 @@ Finding quality in video game history
 </table>
 
 <h2>Other Links</h2>
-
-<p><a href="{{ with .Site.GetPage "section" "g" }}{{ .RelPermalink }}{{ end }}">🚚 All Reviews...</a></p>
-
+<ul>
+  <li><a href="{{ with .Site.GetPage "section" "g" }}{{ .RelPermalink }}{{ end }}">🚚 All Reviews...</a></li>
+  <li><a href="{{ with $.Site.GetPage "/nintendo-compatibility" }}{{ .RelPermalink }}{{ end }}">Nintendo Compatibility</a></li>
+</ul>
 <p>
   <small>
     <a href="{{ $.Site.Params.github_repo }}">github</a>
