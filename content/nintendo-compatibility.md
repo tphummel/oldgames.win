@@ -47,11 +47,13 @@ home:
 
 ---
 
-{{< compat.inline >}}
+## Handheld
+
+{{< handheld.inline >}}
   <table>
     <thead>
       <tr>
-        <th>Hardware</th>
+        <th></th>
         {{ range .Page.Params.handheldFormats }}
           <th><abbr title="{{ .description }}">{{ .title }}</abbr></th>
         {{ end }}
@@ -68,4 +70,4 @@ home:
       {{ end }}
     </tbody>
   </table>
-{{< /compat.inline >}}
+{{< /handheld.inline >}}
