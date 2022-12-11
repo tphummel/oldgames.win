@@ -1,0 +1,26 @@
+{{ define "main" }}
+<h1>{{.Title}}</h1>
+
+<p>{{ partial "breadcrumb.html" . }}</p>
+
+{{ with .Content }}
+<div>{{ . }}</div>
+{{ end }}
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th># Titles</th>
+  </tr>
+  {{ range $name, $taxonomy := .Data.Terms }}
+    {{ $cnt := .Count }}
+    {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+    <tr>
+      <td><a href={{ .RelPermalink }} title="All titles with tag {{$name}}">{{ .Title }}</a></td>
+      <td><a href={{ .RelPermalink }} title="All titles with tag {{$name}}">{{ $cnt }}</a></td>
+    </tr>
+    {{end}}
+  {{end}}
+</table>
+
+{{ end }}
