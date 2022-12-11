@@ -1,5 +1,13 @@
+{{ define "head" }}
+  <meta property="og:url" content=""/>
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{.Title | humanize | title }}" />
+  <meta property="twitter:label1" value="Title Count" />
+  <meta property="twitter:data1" value="{{ len .Pages }}" />
+{{ end }}
+
 {{ define "main" }}
-<h1>{{.Title}}</h1>
+<h1>{{.Title | humanize | title }}</h1>
 
 <p>{{ partial "breadcrumb.html" . }}</p>
 
@@ -7,12 +15,29 @@
 <div>{{ . }}</div>
 {{ end }}
 
-<ul>
-  {{ range .Data.Pages }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{.Title}}</a>
-    </li>
-  {{ end }}
-</ul>
+<h2>All Reviews</h2>
 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Platform</th>
+    <th>Score</th>
+    <th>Release Date</th>
+  </tr>
+
+  {{ range (.Data.Pages.ByParam "releaseDate") }}
+    <tr>
+      <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ partial "pretty-platform" . }}</td>
+      <td><a href="{{ .RelPermalink }}">{{ .Params.score }}</a></td>
+      <td><a href="{{ .RelPermalink }}">{{ (time .Params.releaseDate).Format "Jan 2, 2006" }}</a></td>
+    </tr>
+  {{ end }}
+</table>
+
+<div>
+  {{ with  .OutputFormats.Get "csv" -}}
+    <p><a href="{{ .Permalink }}">CSV</a></p>
+  {{- end }}
+</div>
 {{ end }}

@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1><a href="{{ $.Site.BaseURL }}">{{ $.Site.Title }}</a></h1>
 
-Finding quality in video game history
+When you play old games, you win. 
 
 <h2><a href="{{ with $.Site.GetPage "/series" }}{{ .RelPermalink }}{{ end }}">Series</a></h2>
 {{range $name, $taxonomy := .Site.Taxonomies.series}} {{ $cnt := .Count }}
