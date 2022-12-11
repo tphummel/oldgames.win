@@ -6,5 +6,6 @@ releaseDate: "1997-02-10"
 platforms: ["n64"]
 score: 83
 series: ["mario-kart"]
+tags: ["four-player-local-multiplayer"]
 metacriticLink: "https://www.metacritic.com/game/nintendo-64/mario-kart-64"
 ---

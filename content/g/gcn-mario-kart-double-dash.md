@@ -6,5 +6,6 @@ releaseDate: "2003-11-17"
 platforms: ["gcn"]
 score: 87
 series: ["mario-kart"]
+tags: ["four-player-local-multiplayer"]
 metacriticLink: "https://www.metacritic.com/game/gamecube/mario-kart-double-dash!!"
 ---
