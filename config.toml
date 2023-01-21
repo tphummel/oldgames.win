@@ -7,7 +7,6 @@ enableInlineShortcodes = true
   tag = "tags"
   platform = "platforms"
   series = "series"
-  generation = "generations"
 
 [params]
     github_repo = "https://github.com/tphummel/oldgames.win"
