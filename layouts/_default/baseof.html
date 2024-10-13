@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<title>{{ block "title" . }}{{ if .Title }}{{ .Title | humanize | title }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</title>
-
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 16 16'><text x='0' y='14'>🎮</text></svg>" />
     <meta id="description" name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.site_description }}{{ end }}{{ end }}"/>
 
     {{ if eq (getenv "HUGO_ENV") "production" }}
