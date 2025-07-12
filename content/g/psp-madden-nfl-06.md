@@ -6,5 +6,5 @@ releaseDate: "2005-09-20"
 platforms: ["psp"]
 score: 75
 metacriticLink: "https://www.metacritic.com/game/psp/madden-nfl-06"
-series: []
+series: ["madden"]
 ---
