@@ -6,5 +6,5 @@ releaseDate: "2006-08-22"
 platforms: ["psp"]
 score: 78
 metacriticLink: "https://www.metacritic.com/game/psp/madden-nfl-07"
-series: []
+series: ["madden"]
 ---
